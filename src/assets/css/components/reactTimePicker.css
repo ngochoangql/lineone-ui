@@ -1,0 +1,22 @@
+.scroll-time-picker {
+  scrollbar-width: thin; /* Firefox */
+  -ms-overflow-style: auto;
+}
+
+.scroll-time-picker::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scroll-time-picker::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-time-picker::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.01); /* Gần như vô hình */
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.scroll-time-picker:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5); /* Khi hover mới có màu rõ */
+}

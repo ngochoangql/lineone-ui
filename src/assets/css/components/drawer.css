@@ -1,0 +1,77 @@
+.drawer-content {
+  position: fixed;
+
+  z-index: 101;
+}
+
+.drawer-content-left {
+  height: 100%;
+  width: max-content;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.drawer-content-right {
+  height: 100%;
+  width: max-content;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
+.drawer-content-bottom {
+  width: 100%;
+  height: max-content;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.drawer-content-top {
+  height: max-content;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+}
+
+.drawer-content.slide-out-lr {
+  transform: translateX(0);
+  transition: transform 300ms ease-in;
+}
+
+.drawer-content.slide-out-tb {
+  transform: translateY(0);
+  transition: transform 200ms ease-out;
+}
+
+.drawer-content.slide-in {
+  transition: transform 200ms ease-in;
+}
+
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.drawer-overlay.fade-in {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 200ms ease-in,
+    visibility 200ms ease-in;
+}
+
+.drawer-overlay.fade-out {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 200ms ease-out,
+    visibility 200ms ease-out;
+}

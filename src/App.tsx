@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import type { ColumnDef } from '@tanstack/react-table';
+import { DndTable, RowDragHandleCell } from './components/table/dnd-table';
+import { useState } from 'react';
+
+type User = {
+  id: string;
+  name: string;
+  email: string;
+};
 
 function App() {
-  const [count, setCount] = useState(0)
+  const data: User[] = [
+    { id: '1', name: 'Hoàn', email: 'hoan@example.com' },
+    { id: '2', name: 'Lan', email: 'lan@example.com' },
+    { id: '3', name: 'Minh', email: 'minh@example.com' },
+  ];
+  const [list, setList] = useState<User[]>(data);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const columns: ColumnDef<User>[] = [
+    {
+      id: 'drag',
+      cell: () => {
+        return <RowDragHandleCell />;
+      },
+    },
+    {
+      accessorKey: 'id',
+      header: 'ID',
+    },
+    {
+      accessorKey: 'name',
+      header: 'Tên',
+      filterFn: 'includesString',
+    },
+    {
+      accessorKey: 'email',
+      header: 'Email',
+    },
+  ];
+  return <DndTable columns={columns} onDataChange={setList} data={list} />;
 }
 
-export default App
+export default App;
