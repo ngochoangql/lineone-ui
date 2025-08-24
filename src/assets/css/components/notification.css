@@ -1,0 +1,45 @@
+@import 'react-toastify/dist/ReactToastify.css';
+.Toastify {
+  @apply z-[10010] rounded bg-slate-200 bg-none font-medium text-slate-800 shadow-none dark:bg-navy-600 dark:text-navy-50;
+}
+
+.Toastify__toast {
+  min-height: unset !important;
+  @apply !py-3 !px-5;
+}
+
+.toastify.html {
+  @apply cursor-auto border-none bg-transparent p-0 shadow-none;
+}
+
+.Toastify__toast.custom-toast__primary {
+  @apply !bg-primary !text-white dark:!bg-accent;
+}
+
+.Toastify__toast.custom-toast__secondary {
+  @apply !bg-secondary !text-white;
+}
+
+.Toastify__toast.custom-toast__info {
+  @apply !bg-info !text-white;
+}
+
+.Toastify__toast.custom-toast__warning {
+  @apply !bg-warning !text-white;
+}
+
+.Toastify__toast.custom-toast__success {
+  @apply !bg-success !text-white;
+}
+
+.Toastify__toast.custom-toast__error {
+  @apply !bg-error !text-white;
+}
+
+.Toastify__toast.custom-toast__light {
+  @apply !bg-slate-200 !text-navy-800;
+}
+
+.Toastify__toast.custom-toast__dark {
+  @apply !bg-navy-600 !text-slate-200;
+}
